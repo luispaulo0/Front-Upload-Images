@@ -33,41 +33,37 @@ class Home extends React.Component {
     sendImages() {
         if (!this.state.images) {
             alert("You must charge a image")
-        } else {
-            const formdata = new FormData();
-            const file = this.state.images[0]
-            const data = formdata.append('image', file);
-
-            APIInvoker.invokePOST('/images/upload', data, data => {
-                console.log(data);
-            }, error => {
-                console.log(error);
-            })
+            return
         }
+        const formdata = new FormData()
+
+        for (let index = 0; index < this.state.images.length; index++) {
+            formdata.append("images", this.state.images[index])
+        }
+
+        console.log('Imagenes subidas->' + this.state.images)
+
+        fetch('http://localhost:3000/images/post', {
+            method: 'POST',
+            body: formdata
+
+        })
+            .then(res => res.text())
+            .then(res => console.log(res))
+            .catch(err => {
+                console.log(err)
+            })
+
     }
     render() {
         return (
             <div className={"home"}>
                 <Nav></Nav>
-                {/* <img className={"imagenLogo"} src="app/assets/images/logo5.png" /> */}
-                <div className="card w-50">
-                    <img src="https://th.bing.com/th/id/OIP.yU5l_okkZykKXNdssMxUdQHaHa?pid=ImgDet&rs=1" className="card-img-top" alt="..." />
-                    <div className="card-body">
-                        <h5 className="card-title">Subir imagen</h5>
+                <input type={"file"} multiple className='form-control' onChange={this.selectedImages.bind(this)}></input>
+                <input type="Button" id="reload" onClick={this.sendImages.bind(this)} defaultValue={"Upload Images"} className={"btn"} />
 
-                    <form action="/stats" enctype="multipart/form-data" method="post">
-                        <div class="form-group">
-                            <input type="file" class="form-control-file" name="uploaded_file" />
-                            <input type="text" class="form-control" placeholder="Number of speakers" name="nspeakers" />
-                            <input type="submit" value="Get me the stats!" class="btn btn-default" />
-                        </div>
-                    </form>
-
-                    </div>
-                </div>
             </div>
         )
     }
 }
-
 export default Home;
