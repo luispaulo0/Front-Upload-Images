@@ -1,0 +1,51 @@
+.all{
+    justify-content: center;
+}
+#background-img{
+    background-image: url("/app/assets/images/img.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    height: 100vh;
+    backdrop-filter: blur(80px);
+
+}
+.container-capa{
+    width: 100%;
+    height: 100vh;
+    backdrop-filter: blur(50px);
+}
+.container-2{
+    width: 547px;
+    height: 450px;
+    top: 200px;
+    margin-top: auto;
+    margin-left: auto;
+    margin-right: auto;
+
+    box-sizing: border-box;
+    border-radius: 25px;
+}
+.textLogin{
+    color: black;
+    text-align: center;
+    font-size: x-large;
+}
+#icloud{
+    margin-left: 210px;
+    width: 140px;
+    height: 100px;
+}
+.buttons{
+    width: 60px;
+    height: 80px;
+    margin-left: 90px;
+    margin-top: auto;
+}
+.form-control{
+    width: 200px;
+}
+.Login{
+    margin-left: 150px;
+}
