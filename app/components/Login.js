@@ -62,6 +62,14 @@ class Login extends React.Component {
             <div id="background-img">
                 <div class="container-capa">
                     <div  className="container-2">
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <br/>
                         <img src="/app/assets/images/imagen3.png" id="icloud"/>
                         <p className="textLogin">Iniciar sesión en Ecloud</p>
                         <form className="Login" >

@@ -4,7 +4,7 @@
     margin-top: auto;
     margin-left: auto;
     margin-right: auto;
-
+    background-color: white;
     box-sizing: border-box;
     border-radius: 25px;
 }
@@ -14,45 +14,49 @@
     font-weight: normal;
     font-size: 300%;
     /* line-height: 114px; */
-    color: darkgray;
+    color: black;
 }
 .flecha{
     margin-top: 67px;
     margin-left: 70px;
-    width: 99px;
+    width: 50px;
 }
 .idRol{
     margin-top: 41px;
     margin-left: 65px;
     margin-right: 63px;
 }
-.nombre, .apellido, .username, .password{
-    margin-top: 31px;
-    margin-left: 150px;
-    margin-right: 63px;
 
+.input{
+    margin-top: 10px;
+    margin-left: 100px;
+    border-radius: 10px;
+    width: 350px;
 }
+.form-control-1{
+    margin-left: 60px;
+    border-radius: 10px;
+    display: inline-block;
+}
+.form-control-2{
+    margin-left: 20px;
+    border-radius: 10px;
+    display: inline-block;
+}
+
 .button{
-    width: 272px;
-    height: 46px;
-    left: 584px;
-    top: 709px;
-    margin-left: 25%;
-    margin-top: 10%;
+    margin-left: 210px;
+    margin-top: 5%;
     text-align: center;
     justify-content: center;
-
-
-    font-family: Revalia;
     font-style: normal;
     font-weight: normal;
     font-size: 21px;
     line-height: 26px;
-    /* identical to box height */
+    background-color: #0D6EFD;
+    border: 1px solid;
+    color: white;
 
-    color: #FFFFFF;
-
-    background: #000000;
 }
 #background-img{
     background-image: url("/app/assets/images/img.png");
@@ -68,4 +72,10 @@
     width: 100%;
     height: 100vh;
     backdrop-filter: blur(50px);
+}
+.info{
+    text-align: center;
+}
+.message{
+    color: grey;
 }

@@ -63,62 +63,60 @@ class Register extends React.Component {
             <div id="background-img">
                 <div className="capa">
                     <Link to={"/login"}>
-                        <img src="app/assets/images/flechaAtras.png" className={"flecha"} alt="" />
+                        <img src="app/assets/icons/arrow_circle_left_white_24dp.svg" className={"flecha"} alt="" />
                     </Link>
                     <div className={"cont"}>
-                        <p className={"title"}>Registro</p>
-                        <div className={"nombre"}>
-                            <label htmlFor="nombre">Nombre</label>
-                            <input type="text"
-                                   className="form-control"
-                                   name="nombre"
-                                   id="nombre"
-                                   placeholder="Ingrese su nombre"
-                                   aria-describedby="nombreHelp"
-                                   value={this.state.nombre}
-                                   onChange={this.changeField.bind(this)} />
-                        </div>
-                        <div className={"apellido"}>
-                            <label htmlFor="apellido">Apellido</label>
-                            <input type="text"
-                                   className="form-control"
-                                   name="apellido"
-                                   id="apellido"
-                                   placeholder="Ingrese su apellido"
-                                   aria-describedby="apellidoHelp"
-                                   value={this.state.apellido}
-                                   onChange={this.changeField.bind(this)} />
-                        </div>
-                        <div className={"username"}>
-                            <label htmlFor="username">Login</label>
-                            <input type="text"
-                                   className="form-control"
-                                   name="username"
-                                   id="username"
-                                   placeholder="Ingrese su nombre de usuario"
-                                   aria-describedby="loginHelp"
-                                   value={this.state.username}
-                                   onChange={this.changeField.bind(this)}
-                                   onBlur={this.usernameValidate.bind(this)}
-                            />
-                        </div>
-                        <div id="usernameMessage"
+                        <p className={"title"}>Crear tu Pear ID</p>
+                        <br/>
+                        <p className="info">Sólo necesitas un Pear ID para acceder a todos los servicios de Pear.</p>
+
+                        <input type="text"
+                               className="form-control-1 form-control"
+                               name="nombre"
+
+                               placeholder="Nombre"
+                               aria-describedby="nombreHelp"
+                               value={this.state.nombre}
+                               onChange={this.changeField.bind(this)} />
+
+                        <input type="text"
+                               className="form-control-2 form-control"
+                               name="apellido"
+                               placeholder="Apellido"
+                               aria-describedby="apellidoHelp"
+                               value={this.state.apellido}
+                               onChange={this.changeField.bind(this)} />
+                        <br/>
+                        <br/>
+
+                        <label className="input" htmlFor="username">Pear ID</label>
+                        <input type="text"
+                               className="form-control input"
+                               name="username"
+                               id="username"
+                               placeholder="Ingrese su nombre de usuario"
+                               aria-describedby="loginHelp"
+                               value={this.state.username}
+                               onChange={this.changeField.bind(this)}
+                               onBlur={this.usernameValidate.bind(this)}
+                        />
+
+                        <div className="message" id="usernameMessage"
                              ref={self => this.labelUser = self}
-                             className="form-text text-white">
+                             className="form-text ">
                         </div>
-                        <div className={"password"}>
-                            <label htmlFor="password"> Contraseña</label>
-                            <input type="text"
-                                   className="form-control"
-                                   name="password"
-                                   id="password"
-                                   placeholder="Ingrese su contraseña"
-                                   aria-describedby="passwordHelp"
-                                   value={this.state.password}
-                                   onChange={this.changeField.bind(this)} />
-                        </div>
+
+                        <label className="input" htmlFor="password"> Contraseña</label>
+                        <input type="text"
+                               className="form-control input"
+                               name="password"
+                               id="password"
+                               placeholder="Ingrese su contraseña"
+                               aria-describedby="passwordHelp"
+                               value={this.state.password}
+                               onChange={this.changeField.bind(this)} />
                         <div>
-                            <input type="Button" id="reload" onClick={this.buttonOnClick.bind(this)} defaultValue={"Registrar"} className={"button"} />
+                            <button type="button" id="reload" className="btn button opacity-100" onClick={this.buttonOnClick.bind(this)} defaultValue={"Registrar"}>Registrate</button>
                         </div>
                     </div>
                 </div>
