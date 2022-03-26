@@ -11,7 +11,8 @@ class Home extends React.Component {
         super();
         this.state = {
             token: false,
-            images: []
+            images: [],
+            userid: cookies.get('iduser')
         }
 
         this.token = false,
@@ -36,13 +37,15 @@ class Home extends React.Component {
             alert("You must charge a image")
             return
         }
+
         const formdata = new FormData()
 
         for (let index = 0; index < this.state.images.length; index++) {
             formdata.append("images", this.state.images[index])
         }
+        formdata.append("userid", this.state.userid)
 
-        console.log('Imagenes subidas->' + this.state.images)
+        console.log(this.state.images)
 
         fetch('http://localhost:3000/images/post', {
             method: 'POST',
@@ -66,15 +69,8 @@ class Home extends React.Component {
                             <div className="col-lg-10">
                                 <h4 className="h4">Fotos</h4>
                             </div>
-                            <div className="col-lg-2">
-                                <div className="image-upload">
-                                    <label for="file-input">
-                                        <img className="img-cloud" src="/app/assets/icons/computacion-en-la-nube.png"/>
-                                    </label>
-                                    <input id="file-input" type={"file"} multiple className='form-control' onChange={this.selectedImages.bind(this)}></input>
-                                    <input type="Button" id="reload" onClick={this.sendImages.bind(this)} defaultValue={"Upload Images"} className={"btn"} />
-                                </div>
-                            </div>
+                            <input id="file-input" type={"file"} multiple className='form-control' onChange={this.selectedImages.bind(this)}></input>
+                            <input type="Button" id="reload" onClick={this.sendImages.bind(this)} defaultValue={"Upload Images"} className={"btn"} />
                             <div className="container">
                                 <div className="row">
                                     <div className="col">
