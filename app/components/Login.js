@@ -4,6 +4,7 @@ import APIInvoker from "../utils/APIInvoker"
 import { Link } from "react-router-dom"
 import Cookies from "universal-cookie"
 import "../Styles/Login.css";
+import Nav from "./Nav";
 const cookies = new Cookies()
 
 class Login extends React.Component {
@@ -59,7 +60,9 @@ class Login extends React.Component {
     }
     render() {
         return (
+
             <div id="background-img">
+                <Nav></Nav>
                 <div class="container-capa">
                     <div  className="container-2">
                         <br/>

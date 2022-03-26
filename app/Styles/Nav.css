@@ -1,0 +1,17 @@
+.nav-size{
+    background-color: #323232;
+    height: 40px;
+}
+.img-settings{
+    position: absolute;
+    left: -10px;
+    width: 60px;
+    height: 60px;
+}
+.sesion-nav{
+    position: absolute;
+    right: 30px;
+    top: 5px;
+    background-color: #323232 ;
+    color: white;
+}

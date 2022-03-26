@@ -1,5 +1,6 @@
 import React from 'react'
 import Cookies from "universal-cookie";
+import "../Styles/Nav.css";
 const cookies = new Cookies()
 
 class Nav extends React.Component {
@@ -16,13 +17,12 @@ class Nav extends React.Component {
     }
     render() {
         return (
-            <div>
-                <ul className="nav justify-content-center bg-transparent nav-tabs">
-                    <li className="navs nav-pills nav-fill">
-                        <button className="nav-link active bg-danger text-light" aria-current="page" onClick={this.cerrarSesion.bind(this)}>Cerrar sesión</button>
-                    </li>
-                </ul>
-            </div>
+            <nav className="navbar navbar-light nav-size" >
+                <div className="container">
+                    <img className="img-settings" src="/app/assets/icons/Pear.png" alt=""/>
+                    <p className="sesion-nav" aria-current="page" onClick={this.cerrarSesion.bind(this)}>Cerrar sesión</p>
+                </div>
+            </nav>
         )
     }
 }
