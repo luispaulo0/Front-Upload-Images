@@ -103,8 +103,7 @@ class Register extends React.Component {
 
                         <div className="message" id="usernameMessage"
                              ref={self => this.labelUser = self}
-                             className="form-text ">
-                        </div>
+                        />
 
                         <label className="input" htmlFor="password"> Contraseña</label>
                         <input type="text"

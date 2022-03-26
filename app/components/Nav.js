@@ -12,6 +12,7 @@ class Nav extends React.Component {
     }
     cerrarSesion() {
         cookies.remove("login", { path: "/" })
+        cookies.remove("iduser", { path: "/" })
         window.location.href = "/"
         window.localStorage.removeItem("token")
     }

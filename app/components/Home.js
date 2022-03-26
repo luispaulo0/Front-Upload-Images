@@ -12,6 +12,7 @@ class Home extends React.Component {
         this.state = {
             token: false,
             images: [],
+            savedImages: [],
             userid: cookies.get('iduser')
         }
 
@@ -32,6 +33,20 @@ class Home extends React.Component {
     viewImages() {
         console.log(this.state.images)
     }
+    getImages() {
+        console.log(this.state.userid)
+        APIInvoker.invokeGET(`/images/getimages/${this.state.userid}`,
+            data => {
+                console.log(data.data)
+                this.setState({
+                    savedImages: data.data
+                })
+            },
+            error => {
+                console.log(error)
+            })
+    }
+
     sendImages() {
         if (!this.state.images) {
             alert("You must charge a image")
@@ -50,7 +65,6 @@ class Home extends React.Component {
         fetch('http://localhost:3000/images/post', {
             method: 'POST',
             body: formdata
-
         })
             .then(res => res.text())
             .then(res => console.log(res))
@@ -71,14 +85,15 @@ class Home extends React.Component {
                             </div>
                             <input id="file-input" type={"file"} multiple className='form-control' onChange={this.selectedImages.bind(this)}></input>
                             <input type="Button" id="reload" onClick={this.sendImages.bind(this)} defaultValue={"Upload Images"} className={"btn"} />
+                            <input type="Button" id="update" onClick={this.getImages.bind(this)} defaultValue={"Update"} className={"btn"} />
                             <div className="container">
-                                <div className="row">
-                                    <div className="col">
-                                        <CardImages></CardImages>
-                                        <CardImages></CardImages>
-                                        <CardImages></CardImages>
+
+                                <For each="item" index="idx" of={this.state.savedImages}>
+                                    <div className='card' key={idx}>
+                                        <img src={'http://localhost:3000/'+ item}></img>
                                     </div>
-                                </div>
+                                </For>
+
                             </div>
                         </div>
                     </div>

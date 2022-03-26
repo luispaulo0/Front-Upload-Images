@@ -32,8 +32,13 @@ class Login extends React.Component {
         }
 
         APIInvoker.invokePOST('/users/login', user, data => {
+
             window.localStorage.setItem('token', data.token)
+
             cookies.set("login", user.login, "/")
+            cookies.set("iduser", data.data.iduser, "/")
+            console.log(data.data.iduser)
+
             this.props.history.push('/home')
             window.location.href = "/home"
         }, error => {
@@ -63,7 +68,7 @@ class Login extends React.Component {
 
             <div id="background-img">
                 <Nav></Nav>
-                <div class="container-capa">
+                <div className="container-capa">
                     <div  className="container-2">
                         <br/>
                         <br/>
