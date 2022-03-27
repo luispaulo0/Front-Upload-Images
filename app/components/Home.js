@@ -17,7 +17,8 @@ class Home extends React.Component {
         }
 
         this.token = false,
-            this.images = []
+        this.images = []
+        this.getImages()
 
     }
     componentDidMount() {
@@ -67,11 +68,13 @@ class Home extends React.Component {
             body: formdata
         })
             .then(res => res.text())
-            .then(res => console.log(res))
+            .then(
+                res => console.log(res),
+                this.getImages()
+            )
             .catch(err => {
                 console.log(err)
             })
-
     }
     render() {
         return (
@@ -86,14 +89,12 @@ class Home extends React.Component {
                             <input id="file-input" type={"file"} multiple className='form-control' onChange={this.selectedImages.bind(this)}></input>
                             <input type="Button" id="reload" onClick={this.sendImages.bind(this)} defaultValue={"Upload Images"} className={"btn"} />
                             <input type="Button" id="update" onClick={this.getImages.bind(this)} defaultValue={"Update"} className={"btn"} />
-                            <div className="container">
-
+                            <div className="container d-flex justify-content-center">
                                 <For each="item" index="idx" of={this.state.savedImages}>
                                     <div className='card' key={idx}>
-                                        <img src={'http://localhost:3000/'+ item}></img>
+                                        <img src={'http://localhost:3000/' + item}></img>
                                     </div>
                                 </For>
-
                             </div>
                         </div>
                     </div>

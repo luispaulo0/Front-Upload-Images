@@ -21,7 +21,7 @@ class Nav extends React.Component {
             <nav className="navbar navbar-light nav-size" >
                 <div className="container">
                     <img className="img-settings" src="/app/assets/icons/Pear.png" alt=""/>
-                    <p className="sesion-nav" aria-current="page" onClick={this.cerrarSesion.bind(this)}>Cerrar sesión</p>
+                    <input type={"button"} className="sesion-nav btn" defaultValue={"Exit"} aria-current="page" onClick={this.cerrarSesion.bind(this)}/>
                 </div>
             </nav>
         )

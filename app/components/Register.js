@@ -1,6 +1,7 @@
 import React from 'react'
-import update from "immutability-helper";
-import "../Styles/Register.css";
+import update from "immutability-helper"
+import Swal from 'sweetalert2'
+import "../Styles/Register.css"
 import APIInvoker from "../utils/APIInvoker"
 import { Link } from "react-router-dom"
 
@@ -35,10 +36,17 @@ class Register extends React.Component {
             login: this.state.username,
             password: this.state.password
         }
-        APIInvoker.invokePOST('/users/signup', user, data => {
-            alert(JSON.stringify(data))
+        APIInvoker.invokePOST('/users/signup', user, async data => {
+            await Swal.fire({
+                title: 'Sucess!',
+                text: 'Do you want to continue',
+                icon: 'success',
+                confirmButtonText: 'Okay'
+              })
             if (data.status) {
                 this.token = true
+                
+                window.location.href = "/login";
             }
         }, error => {
             alert(JSON.stringify(error))
@@ -49,11 +57,9 @@ class Register extends React.Component {
         let login = this.state.username
         APIInvoker.invokeGET(`/users/usernameValidate/${login}`,
             data => {
-                //let label = document.getElementById('usernameMessage')
                 this.labelUser.innerHTML = data.message
             },
             error => {
-                //let label = document.getElementById('usernameMessage')
                 this.labelUser.innerHTML = error.message
             })
     }
