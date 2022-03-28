@@ -4,6 +4,7 @@ import Nav from "./Nav"
 import APIInvoker from "../utils/APIInvoker";
 import Cookies from "universal-cookie";
 import CardImages from "./CardImages";
+import Header from "./Header";
 const cookies = new Cookies()
 
 class Home extends React.Component {
@@ -79,22 +80,46 @@ class Home extends React.Component {
     render() {
         return (
             <div>
-                <Nav></Nav>
-                <div className={"home"}>
+                <Header></Header>
+                <div className="home vh-color">
+                    <div className="container ">
+                        <div className="row">
+                            <div className="col-lg-2 ">
+                            </div>
+                            <div className="col-lg-10 resent-color border-start">
+                                <h4 className="h4">Recientes</h4>
+                                <div className="image-upload">
+                                    <label htmlFor="file-input">
+                                        <img src="/app/assets/icons/computacion-en-la-nube.png" className="img-cloud"/>
+                                    </label>
+                                    <input id="file-input" type={"file"} multiple className='form-control ' onChange={this.selectedImages.bind(this)}></input>
+                                </div>
+                                <input type="Button" id="update" onClick={this.getImages.bind(this)} defaultValue={"Subir"} className="btn update" />
+                            </div>
+                        </div>
+                    </div>
                     <div className="container">
                         <div className="row">
-                            <div className="col-lg-10">
-                                <h4 className="h4">Fotos</h4>
+                            <div className="col-lg-1">
+
                             </div>
-                            <input id="file-input" type={"file"} multiple className='form-control' onChange={this.selectedImages.bind(this)}></input>
-                            <input type="Button" id="reload" onClick={this.sendImages.bind(this)} defaultValue={"Upload Images"} className={"btn"} />
-                            <input type="Button" id="update" onClick={this.getImages.bind(this)} defaultValue={"Update"} className={"btn"} />
-                            <div className="container d-flex justify-content-center">
-                                <For each="item" index="idx" of={this.state.savedImages}>
-                                    <div className='card' key={idx}>
-                                        <img src={'http://localhost:3000/' + item}></img>
-                                    </div>
-                                </For>
+                            <div className="col-lg-1">
+
+                            </div>
+                            <div className="col-lg-10 resent-color border-start" >
+                                <div className="image-upload">
+                                    <label htmlFor="reload">
+                                        <img src="/app/assets/icons/refresh%20(1).png" className="reload"/>
+                                    </label>
+                                    <input type="Button" id="reload" onClick={this.sendImages.bind(this)} defaultValue={"Upload Images"} className={"btn"}/>
+                                </div>
+                                <div className="overflow-auto" id="over-photos">
+                                    <For each="item" index="idx" of={this.state.savedImages}>
+                                        <div className='card img-size-up' key={idx}>
+                                            <img src={'http://localhost:3000/' + item} className="img-size"></img>
+                                        </div>
+                                    </For>
+                                </div>
                             </div>
                         </div>
                     </div>

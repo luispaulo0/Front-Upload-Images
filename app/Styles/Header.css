@@ -1,0 +1,21 @@
+.tittle{
+    margin-left: -40px;
+}
+.background-header{
+    background-color: #F3F3F3;
+}
+.header-nav2{
+    color: black;
+    margin-left: 100px;
+    margin-top: 10px;
+}
+#cloud{
+    display: inline-block;
+    font-size: 25px;
+    color: black;
+}
+#photo{
+    display: inline-block;
+    font-size: 25px;
+    color: #A7A7A7;
+}
