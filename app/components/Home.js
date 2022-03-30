@@ -94,7 +94,8 @@ class Home extends React.Component {
                                     </label>
                                     <input id="file-input" type={"file"} multiple className='form-control ' onChange={this.selectedImages.bind(this)}></input>
                                 </div>
-                                <input type="Button" id="update" onClick={this.getImages.bind(this)} defaultValue={"Subir"} className="btn update" />
+                                <input type="Button" id="reload" onClick={this.sendImages.bind(this)} defaultValue={"Subir"} className="btn update"/>
+
                             </div>
                         </div>
                     </div>
@@ -108,10 +109,10 @@ class Home extends React.Component {
                             </div>
                             <div className="col-lg-10 resent-color border-start" >
                                 <div className="image-upload">
-                                    <label htmlFor="reload">
+                                    <label htmlFor="update">
                                         <img src="/app/assets/icons/refresh%20(1).png" className="reload"/>
                                     </label>
-                                    <input type="Button" id="reload" onClick={this.sendImages.bind(this)} defaultValue={"Upload Images"} className={"btn"}/>
+                                    <input type="Button" id="update" onClick={this.getImages.bind(this)} defaultValue={"Subir"}  />
                                 </div>
                                 <div className="overflow-auto" id="over-photos">
                                     <For each="item" index="idx" of={this.state.savedImages}>
